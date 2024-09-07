@@ -1,10 +1,8 @@
-name: Build
+name: Build Specific Commit
 
 on:
   push:
-    branches: [ main, 'release/**' ]
-  pull_request:
-    branches: [ main, 'release/**' ]
+    branches: [ build-old-commit ]
 
 jobs:
   build-windows:
@@ -30,6 +28,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: recursive
+        ref: c099b404a3093f792e12eb2c4eb2c4a74d2ed3fe
         
     - name: Setup Meson
       run: pip install meson==0.64.1
